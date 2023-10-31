@@ -2,6 +2,18 @@ pipeline {
   agent any
 
   stages {
+    stage('Install') {
+        steps {
+            // Install the ReactJS dependencies
+            sh "npm install"
+        }
+    }
+    stage('Test') {
+        steps {
+          // Run the ReactJS tests
+          sh "npm test"
+        }
+    }
     stage('Checkout') {
         steps {
           // Get some code from a GitHub repository
